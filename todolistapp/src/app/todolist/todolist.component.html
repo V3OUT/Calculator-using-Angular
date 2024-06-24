@@ -1,0 +1,18 @@
+<h1>
+    TODO App
+</h1>
+<div class="CreatingSection">
+    <input   placeholder="Enter new task" type="text" [(ngModel)]="taskTitle"/>
+    <input type="date" placeholder="date" [(ngModel)]="taskdate" />
+    <button (click)= "create_Task()"class="btn btn-primary" >   Create task</button>
+</div>
+<div class="ShowingSection">
+    <ul>
+        <li *ngFor="let task of alltask;let i=index">
+            ID:{{task.id}}   Title:{{task.title}}    Date:{{task.date}}
+            <button (click)="delete_Task(i)" class="btn btn-danger">Delete</button><br>
+            <button (click)="edit_Task(i)" class="btn btn-warning">Edit</button>
+        </li>
+    </ul>
+</div>
+<div *ngIf="errorMessage" class="error-message">{{errorMessage}}</div>
